@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.5
+  google_fonts: ^6.1.0
+  page_transition: ^2.1.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +28,15 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/icon-akun-bar-active.png
+    - assets/icons/icon-akun-bar.png
+    - assets/icons/icon-home-bar-active.png
+    - assets/icons/icon-home-bar.png
+    - assets/icons/icon-riwayat-bar-active.png
+    - assets/icons/icon-riwayat-bar.png
+    - assets/icons/icon-tiket-bar-active.png
+    - assets/icons/icon-tiket-bar.png
+    - assets/tiketku-header.png
+    - assets/beranda-iklan-1.png
+    - assets/beranda-iklan-2.png
