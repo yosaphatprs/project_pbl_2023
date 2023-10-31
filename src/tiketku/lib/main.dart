@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:tiketku/pages/home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Tentang Tiketku',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -26,7 +29,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 2, 13, 69),
         title: Text('Tentang Tiketku'),
       ),
       body: ListView(
