@@ -1,12 +1,39 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:tiketku/pages/home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  runApp(MaterialApp(initialRoute: '/', routes: {
-    '/': (context) => const MyApp(),
-  }));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MaterialApp(
+    theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
+    initialRoute: '/',
+    onGenerateRoute: (settings) {
+      switch (settings.name) {
+        case '/':
+          return PageTransition(
+            child: const HomePage(),
+            type: PageTransitionType.fade,
+            childCurrent: const HomePage(),
+          );
+        case '/akun':
+          return PageTransition(
+              child: const MyApp(),
+              type: PageTransitionType.leftToRightJoined,
+              duration: const Duration(milliseconds: 400),
+              childCurrent: const HomePage(),
+              curve: Curves.easeOut);
+        default:
+          return MaterialPageRoute(builder: (context) => const MyApp());
+      }
+    },
+    // routes: {
+    //   '/': (context) => const HomePage(),
+    //   '/tentang': (context) => const MyApp(),
+    // },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -135,6 +162,7 @@ class AboutPage extends StatelessWidget {
                   return AlertDialog(
                     title: Text('Versi Aplikasi'),
                     content:
+                       
                         Text('1.0.0'), // Ganti dengan versi aktual aplikasi
                     actions: [
                       TextButton(

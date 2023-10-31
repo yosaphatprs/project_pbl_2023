@@ -19,7 +19,10 @@ Aplikasi TiketKu adalah sebuah aplikasi pemesanan tiket kereta api pihak ketiga 
 
 | No. | Nama Screen | Fitur | PIC
 |-----|-------------|-------|-----|
-| 1 | Splash        | -     | Mr. X |
+| 1 | Splash Screen        | -     | Novita |
+| 2 | Login Screen         | -     | Maidy |
+| 3 | Register Screen      | -     | Maidy |
+| 4 | Dashboard/Home Screen         | Carousel, TabView, BottomNavigationBar | Josafat |
 
 dst
 
