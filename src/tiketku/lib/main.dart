@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Tentang Tiketku'
+      title: 'Tentang Tiketku',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
