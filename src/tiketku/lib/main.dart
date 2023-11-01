@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tiketku/pages/detailRiwayat.dart';
 import 'package:tiketku/pages/home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:tiketku/pages/riwayatTransaski.dart';
 
 void main() {
   runApp(MaterialApp(initialRoute: '/', routes: {
-    '/': (context) => const MyApp(),
+    '/': (context) => RiwayatTransaksiPage(),
+    '/detailRiwayat': (context) => DetailRiwayatPage(),
   }));
 }
 class MyApp extends StatelessWidget {
