@@ -64,7 +64,7 @@ class BottomNavbar extends StatelessWidget {
             Navigator.pushNamed(context, "/riwayat");
             break;
           case 3:
-            Navigator.pushNamed(context, "/tentang");
+            Navigator.pushNamed(context, "/akun");
             break;
         }
       },

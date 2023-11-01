@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiketku/constants/colors.dart';
 import '../widgets/bottom_navbar.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/carousel_header_widget.dart';
-import '../widgets/home_card.dart';
 import '../widgets/home_tab_view.dart';
 import '../widgets/kai_pay_poin_home.dart';
 

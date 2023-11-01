@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Tentang Tiketku'
+      title: 'Tentang Tiketku',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -96,22 +96,21 @@ class DashboardAkun extends StatelessWidget {
                 }),
                 _buildListItem('Detail Akun', () {}),
                 InkWell(
-                  onTap: (){
-
-                  },
+                  onTap: () {},
                   child: Container(
-    padding: EdgeInsets.all(16.0),
-    color: Color(0xFFFF7A00), // Warna latar belakang untuk Logout
-    child: Text(
-      'Logout',
-      style: TextStyle(
-        color: Colors.white, // Warna teks untuk Logout
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
-       ),
-       ),
-       )
+                    padding: EdgeInsets.all(16.0),
+                    color:
+                        Color(0xFFFF7A00), // Warna latar belakang untuk Logout
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
+                        color: Colors.white, // Warna teks untuk Logout
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -132,7 +131,8 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 2, 13, 69),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 2, 13, 69),
         title: Text('Tentang Tiketku'),
       ),
       body: ListView(
@@ -165,7 +165,6 @@ class AboutPage extends StatelessWidget {
                   return AlertDialog(
                     title: Text('Versi Aplikasi'),
                     content:
-                       
                         Text('1.0.0'), // Ganti dengan versi aktual aplikasi
                     actions: [
                       TextButton(
