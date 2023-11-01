@@ -23,6 +23,7 @@ Aplikasi TiketKu adalah sebuah aplikasi pemesanan tiket kereta api pihak ketiga 
 | 2 | Login Screen         | -     | Maidy |
 | 3 | Register Screen      | -     | Maidy |
 | 4 | Dashboard/Home Screen         | Carousel, TabView, BottomNavigationBar | Josafat |
+| 5 | Jadwal Kereta | ListView horizontal untuk cari tanggal | Josafat |
 
 dst
 
