@@ -4,7 +4,12 @@ import 'package:tiketku/constants/colors.dart';
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
+    required this.text,
+    required this.routeName,
   });
+
+  final String text;
+  final String routeName;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +19,12 @@ class PrimaryButton extends StatelessWidget {
         style: TextButton.styleFrom(
           backgroundColor: AppColor.primaryColor,
         ),
-        onPressed: () {},
-        child: const Text(
-          'Cari',
-          style: TextStyle(color: Colors.white),
+        onPressed: () {
+          Navigator.pushNamed(context, routeName);
+        },
+        child: Text(
+          text,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

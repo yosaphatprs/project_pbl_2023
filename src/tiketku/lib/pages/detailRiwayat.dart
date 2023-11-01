@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tiketku/widgets/bottom_navbar.dart';
 
 class DetailRiwayatPage extends StatelessWidget {
   const DetailRiwayatPage({Key? key}) : super(key: key);
@@ -392,7 +393,7 @@ class DetailHarga extends StatelessWidget {
   }
 }
 
-class DaftarPenumpang extends StatelessWidget{
+class DaftarPenumpang extends StatelessWidget {
   const DaftarPenumpang({super.key});
 
   @override
@@ -412,12 +413,10 @@ class DaftarPenumpang extends StatelessWidget{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                     
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
-                         
                             child: Text.rich(
                               TextSpan(
                                 children: [
@@ -455,7 +454,6 @@ class DaftarPenumpang extends StatelessWidget{
                               ),
                             ),
                           ),
-                        
                           Expanded(
                             flex: 1,
                             child: Row(
@@ -502,7 +500,6 @@ class DaftarPenumpang extends StatelessWidget{
                           ),
                         ],
                       ),
-                      
                     ],
                   ),
                 ),

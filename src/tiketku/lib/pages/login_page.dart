@@ -21,7 +21,6 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
 
@@ -35,7 +34,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -43,88 +42,90 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: <Widget>[
             SizedBox(height: 50),
-                  Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          'assets/logo.png',
-                          height: 100,
-                        ),
-                        SizedBox(height: 10), // Spasi antara logo dan teks "Registrasi Akun"
-                        Text(
-                          'Login Akun',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                      ),
-                    ),
-                  ]
-              ),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: Column(children: [
+                Image.asset(
+                  'assets/logo.png',
+                  height: 100,
+                ),
+                SizedBox(
+                    height: 10), // Spasi antara logo dan teks "Registrasi Akun"
+                Text(
+                  'Login Akun',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ]),
             ),
             SizedBox(height: 40),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Alamat Email',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 123, 0),
-                        fontSize: 12,
-                      ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Alamat Email',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 123, 0),
+                      fontSize: 12,
                     ),
-                    SizedBox(height: 5), // Spasi antara teks dan TextField
-                    TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Masukkan Alamat Email', // Menggunakan hintText untuk teks yang muncul di dalam TextField
-                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 10), // Padding untuk teks input
-                      ),
+                  ),
+                  SizedBox(height: 5), // Spasi antara teks dan TextField
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText:
+                          'Masukkan Alamat Email', // Menggunakan hintText untuk teks yang muncul di dalam TextField
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 10), // Padding untuk teks input
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
             SizedBox(height: 5),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                        'Kata Sandi',
-                        style: TextStyle(
-                        color: Color.fromARGB(255, 255, 123, 0),
-                        fontSize: 12,
-                        ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Kata Sandi',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 123, 0),
+                      fontSize: 12,
                     ),
-              SizedBox(height: 5),
-                    TextFormField(
-                      controller: passwordController,
-                      obscureText: _obscureText,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Masukkan Kata Sandi',
-                        suffixIcon: IconButton(
-                           icon: Icon(
-                            _obscureText ? Icons.visibility : Icons.visibility_off,
-                            ),
-                            onPressed: () {
-                            setState(() {
-                                    _obscureText = !_obscureText;
-                            });
-                          },
+                  ),
+                  SizedBox(height: 5),
+                  TextFormField(
+                    controller: passwordController,
+                    obscureText: _obscureText,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Masukkan Kata Sandi',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                         ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-
-
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -140,8 +141,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     ),
                     Text(
                       'Ingat Saya',
-                      style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-                      
+                      style:
+                          TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
                     ),
                   ],
                 ),
@@ -156,9 +157,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ],
             ),
-            
             SizedBox(height: 20),
-
             Container(
               height: 50,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -166,22 +165,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 style: ElevatedButton.styleFrom(
                   primary: const Color.fromARGB(255, 255, 102, 0),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15), // Ganti nilai sesuai keinginan Anda
+                    borderRadius: BorderRadius.circular(
+                        15), // Ganti nilai sesuai keinginan Anda
                   ),
                 ),
                 onPressed: () {
+                  Navigator.pushNamed(context, '/');
                   print(nameController.text);
                   print(passwordController.text);
                 },
                 child: const Text('Masuk'),
               ),
             ),
-
             Row(
               children: <Widget>[
                 Text(
                   'Tidak memiliki akun?',
-                  style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 145, 143, 139)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: const Color.fromARGB(255, 145, 143, 139)),
                 ),
                 TextButton(
                   onPressed: () {
@@ -192,7 +194,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   },
                   child: const Text(
                     'Daftar sekarang',
-                    style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 56, 53, 51)),
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: const Color.fromARGB(255, 56, 53, 51)),
                   ),
                 ),
               ],
@@ -222,7 +226,8 @@ class RegisterPage extends StatelessWidget {
           builder: (BuildContext context) {
             return AlertDialog(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0), // Sesuaikan dengan radius yang diinginkan
+                borderRadius: BorderRadius.circular(
+                    15.0), // Sesuaikan dengan radius yang diinginkan
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -233,8 +238,10 @@ class RegisterPage extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
                           'assets/tiketku.png',
-                          height: 50, // Sesuaikan dengan tinggi logo yang diinginkan
-                          width: 50, // Sesuaikan dengan lebar logo yang diinginkan
+                          height:
+                              50, // Sesuaikan dengan tinggi logo yang diinginkan
+                          width:
+                              50, // Sesuaikan dengan lebar logo yang diinginkan
                         ),
                       ),
                       Text(
@@ -273,37 +280,40 @@ class RegisterPage extends StatelessWidget {
         );
         return back;
       },
-          child: Scaffold(
-            body: Padding(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ListView(children: <Widget>[
+            SizedBox(height: 50),
+            Container(
+              alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
-              child: ListView(
-                children: <Widget>[
-                  SizedBox(height: 50),
-                  Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          'assets/logo.png',
-                          height: 100,
-                        ),
-                        SizedBox(height: 10), // Spasi antara logo dan teks "Registrasi Akun"
-                        Text(
-                          'Registrasi Akun',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/logo.png',
+                    height: 100,
+                  ),
+                  SizedBox(
+                      height:
+                          10), // Spasi antara logo dan teks "Registrasi Akun"
+                  Text(
+                    'Registrasi Akun',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
                   SizedBox(height: 10),
                   Center(
                     child: Container(
-                      width: 400, // Sesuaikan lebar teks yang diinginkan di sini
+                      width:
+                          400, // Sesuaikan lebar teks yang diinginkan di sini
                       child: Text(
                         'Pastikan alamat email dan nomor telepon anda valid. Email/nomor telepon yang anda masukkan digunakan untuk mengirimkan tautan verifikasi dan informasi yang terkait dengan pemesanan anda.',
-                        textAlign: TextAlign.center, // Untuk membuat teks menjadi rata tengah
+                        textAlign: TextAlign
+                            .center, // Untuk membuat teks menjadi rata tengah
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
@@ -312,167 +322,170 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ),
                   ),
-
                 ],
               ),
-            ),              
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Alamat Email',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 123, 0),
-                        fontSize: 12,
-                      ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Alamat Email',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 123, 0),
+                      fontSize: 12,
                     ),
-                    SizedBox(height: 5), // Spasi antara teks dan TextField
-                    TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Masukkan Alamat Email', // Menggunakan hintText untuk teks yang muncul di dalam TextField
-                        contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 10), // Padding untuk teks input
-                      ),
+                  ),
+                  SizedBox(height: 5), // Spasi antara teks dan TextField
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText:
+                          'Masukkan Alamat Email', // Menggunakan hintText untuk teks yang muncul di dalam TextField
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 10), // Padding untuk teks input
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Nomor Telepon',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 123, 0),
-                        fontSize: 12,
-                      ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Nomor Telepon',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 123, 0),
+                      fontSize: 12,
                     ),
-                    SizedBox(height: 5), // Spasi antara teks dan TextField
-                    Stack(
-                      children: [
-                        TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Color.fromARGB(255, 128, 117, 117)),
+                  ),
+                  SizedBox(height: 5), // Spasi antara teks dan TextField
+                  Stack(
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 128, 117, 117)),
+                          ),
+                          hintText: 'Masukkan Nomor Telepon',
+                          contentPadding: EdgeInsets.fromLTRB(50, 15, 10, 15),
+                        ),
+                      ),
+                      Positioned(
+                        left: 3,
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 9, vertical: 16),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              right: BorderSide(
+                                  color: Color.fromARGB(255, 128, 117, 117)),
                             ),
-                            hintText: 'Masukkan Nomor Telepon',
-                            contentPadding: EdgeInsets.fromLTRB(50, 15, 10, 15),
+                          ),
+                          child: Text(
+                            '+62',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
                           ),
                         ),
-                        Positioned(
-                          left: 3,
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 9, vertical: 16),
-                            decoration: BoxDecoration(
-                              border: Border(
-                                right: BorderSide(color: Color.fromARGB(255, 128, 117, 117)),
-                              ),
-                            ),
-                            child: Text(
-                              '+62',
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-
-                    SizedBox(height: 5),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Kata Sandi',
-                              style: TextStyle(
-                              color: Color.fromARGB(255, 255, 123, 0),
-                              fontSize: 12,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          TextFormField(
-                            controller: passwordController,
-                            obscureText: _obscureText,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: 'Masukkan Kata Sandi',
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  _obscureText ? Icons.visibility : Icons.visibility_off,
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    _obscureText = !_obscureText;
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
+            ),
+            SizedBox(height: 5),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Kata Sandi',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 123, 0),
+                      fontSize: 12,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  TextFormField(
+                    controller: passwordController,
+                    obscureText: _obscureText,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Masukkan Kata Sandi',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
                       ),
                     ),
-
-
-                    SizedBox(height: 20),
-
-                                Container(
-                                  height: 50,
-                                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: const Color.fromARGB(255, 255, 102, 0),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15), // Ganti nilai sesuai keinginan Anda
-                                      ),
-                                    ),
-                                      onPressed: () {
-                                        // Aksi saat tombol daftar ditekan
-                                      },
-                                      child: const Text('Buat Akun'),
-                      
-                                    ),
-                                  ),
-                    SizedBox(height: 190),
-                                  Row(
-                                  children: <Widget>[
-                                    Text(
-                                      'Sudah memiliki akun?',
-                                      style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 145, 143, 139)),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => LoginPage()),
-                                        );
-                                      },
-                                      child: const Text(
-                                        'Login',
-                                        style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 56, 53, 51)),
-                                      ),
-                                    ),
-                                  ],
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                ),
-                                ]
-                              ),
-                            ),
-                            ),
-                          );
-                      }
-                        
-                    }
-
-void setState(Null Function() param0) {
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: const Color.fromARGB(255, 255, 102, 0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        15), // Ganti nilai sesuai keinginan Anda
+                  ),
+                ),
+                onPressed: () {
+                  // Aksi saat tombol daftar ditekan
+                },
+                child: const Text('Buat Akun'),
+              ),
+            ),
+            SizedBox(height: 190),
+            Row(
+              children: <Widget>[
+                Text(
+                  'Sudah memiliki akun?',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: const Color.fromARGB(255, 145, 143, 139)),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: const Color.fromARGB(255, 56, 53, 51)),
+                  ),
+                ),
+              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+          ]),
+        ),
+      ),
+    );
+  }
 }
+
+void setState(Null Function() param0) {}

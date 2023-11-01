@@ -44,10 +44,17 @@ class BottomNavbar extends StatelessWidget {
                   ? AppColor.secondaryColor
                   : const Color.fromARGB(255, 183, 183, 183),
             ),
-            label: 'Akun'),
+            label: title),
       ],
       backgroundColor: const Color.fromARGB(255, 217, 217, 217),
       unselectedItemColor: const Color.fromARGB(255, 183, 183, 183),
+      currentIndex: title == 'Beranda'
+          ? 0
+          : title == 'Tiket'
+              ? 1
+              : title == 'Riwayat'
+                  ? 2
+                  : 3,
       selectedItemColor: Colors.black,
       selectedFontSize: 12,
       showUnselectedLabels: true,

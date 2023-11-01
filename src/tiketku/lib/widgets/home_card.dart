@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'drop_down_kelas_penumpang_home.dart';
-import 'primary_button.dart';
+import 'primary_route_button.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({
@@ -153,7 +153,15 @@ class HomeCard extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const PrimaryButton()
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/jadwal_kereta');
+            },
+            child: const PrimaryButton(
+              text: 'Cari',
+              routeName: '/jadwal_kereta',
+            ),
+          )
         ]),
       ),
     );

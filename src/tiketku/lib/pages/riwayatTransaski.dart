@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiketku/widgets/bottom_navbar.dart';
 
 class RiwayatTransaksiPage extends StatelessWidget {
   const RiwayatTransaksiPage({Key? key}) : super(key: key);
@@ -8,22 +9,27 @@ class RiwayatTransaksiPage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        bottomNavigationBar: const BottomNavbar(title: 'Riwayat'),
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text('Riwayat Transaksi', style: TextStyle(color: Colors.black),),
+          title: Text(
+            'Riwayat Transaksi',
+            style: TextStyle(color: Colors.black),
+          ),
           bottom: TabBar(
             tabs: [
               Tab(
-                child: 
-                  Text('Tiket', style: TextStyle(color: Colors.black),),
-              
+                child: Text(
+                  'Tiket',
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
               Tab(
-                child: 
-                  Text('Layanan', style: TextStyle(color: Colors.black),),
-              
+                child: Text(
+                  'Layanan',
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
-              
             ],
           ),
         ),
@@ -42,9 +48,7 @@ class RiwayatTransaksiPage extends StatelessWidget {
             )),
             SafeArea(
                 child: Column(
-              children: [
-                
-              ],
+              children: [],
             )),
           ],
         ),
@@ -85,7 +89,6 @@ class KartuRiwayat extends StatelessWidget {
               Navigator.pushNamed(context, '/detailRiwayat');
             },
             child: Card(
-            
               child: Padding(
                 padding: EdgeInsets.only(right: 10, left: 10),
                 child: SizedBox(
@@ -109,7 +112,9 @@ class KartuRiwayat extends StatelessWidget {
                                   child: Padding(
                                     padding: const EdgeInsets.all(4),
                                     child: Text(
-                                      'Selesai', style: TextStyle(color: Colors.white, fontSize: 8),
+                                      'Selesai',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 8),
                                     ),
                                   ))
                             ],
