@@ -151,7 +151,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   },
                   child: Text(
                     'Lupa kata sandi?',
-                    style: TextStyle(color: const Color.fromARGB(255, 253, 17, 0)),
+                    style: TextStyle(color: Color.fromARGB(255, 255, 0, 0)),
                   ),
                 ),
               ],
@@ -238,7 +238,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Peringatan',
+                        'Peringatan!',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
