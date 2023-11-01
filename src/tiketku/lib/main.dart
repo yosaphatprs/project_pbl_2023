@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
     initialRoute: '/',
     onGenerateRoute: (settings) {
