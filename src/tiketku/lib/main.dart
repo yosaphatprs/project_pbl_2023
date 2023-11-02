@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tiketku/pages/detail_transaksi.dart';
 import 'package:tiketku/pages/home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,6 +62,12 @@ void main() async {
         case '/jadwal_kereta':
           return PageTransition(
               child: const JadwalKereta(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/detail_transaksi':
+          return PageTransition(
+              child: const DetailTransaksi(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);

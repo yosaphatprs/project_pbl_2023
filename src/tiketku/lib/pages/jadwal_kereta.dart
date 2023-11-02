@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tiketku/constants/colors.dart';
-import 'package:tiketku/pages/riwayatTransaski.dart';
+import '../widgets/date_tab_ticket_page.dart';
+import '../widgets/jadwal_kereta_card.dart';
+import '../widgets/jadwal_tiket_app_bar.dart';
 
 class JadwalKereta extends StatefulWidget {
   const JadwalKereta({super.key});
@@ -79,41 +81,8 @@ class _JadwalKeretaState extends State<JadwalKereta> {
         backgroundColor: AppColor.secondaryColor,
         automaticallyImplyLeading: false,
         toolbarHeight: 49,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/');
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                  size: 24,
-                )),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Malang (ML) - Blitar (BL)",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "${_convertDay(dt.weekday)}, ${dt.day} ${_convertMonth(dt.month)} ${dt.year}",
-                  style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        title: JadwalTiketAppBar(
+            dt: dt, convertDay: _convertDay, convertMonth: _convertMonth),
       ),
       backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       body: SafeArea(
@@ -133,181 +102,29 @@ class _JadwalKeretaState extends State<JadwalKereta> {
                           dt: dt.add(Duration(days: (index))));
                     }).toList())),
             _indexTab == 0
-                ? JadwalKeretaCard(dt: dt)
-                : Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: const Center(
+                ? Expanded(
+                    child: Padding(
+                    padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                    child: ListView(scrollDirection: Axis.vertical, children: [
+                      JadwalKeretaCard(dt: dt),
+                      const SizedBox(height: 8),
+                      JadwalKeretaCard(dt: dt),
+                      const SizedBox(height: 8),
+                      JadwalKeretaCard(dt: dt),
+                      const SizedBox(height: 8),
+                      JadwalKeretaCard(dt: dt),
+                      const SizedBox(height: 8),
+                      JadwalKeretaCard(dt: dt),
+                      const SizedBox(height: 8),
+                      JadwalKeretaCard(dt: dt)
+                    ]),
+                  ))
+                : const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Center(
                       child: Text("Belum tersedia jadwal"),
                     ),
                   )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class JadwalKeretaCard extends StatelessWidget {
-  const JadwalKeretaCard({
-    super.key,
-    required this.dt,
-  });
-
-  final DateTime dt;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-        child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            height: 136,
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Image.asset("assets/kai_logo.png"),
-                    ],
-                  ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'KERTANEGARA',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColor.secondaryColor),
-                            ),
-                            Text(
-                              "Ekonomi (D)",
-                              style: TextStyle(
-                                  fontSize: 9, color: Colors.grey[500]), //ubah
-                            )
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            const Text(
-                              'Rp 12.0000.-',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColor.secondaryColor),
-                            ),
-                            Text("Tersedia",
-                                style: TextStyle(
-                                    color: Colors.green[400],
-                                    fontSize: 9,
-                                    fontWeight: FontWeight.bold)),
-                          ],
-                        )
-                      ]),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Malang (ML)"), Text("Blitar (BL)")],
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("08:00"),
-                      Icon(Icons.arrow_forward, size: 12),
-                      Text("09:29")
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("${dt.day} Oct ${dt.year}"),
-                      Text("Durasi 1j 29m"),
-                      Text("${dt.day} Oct ${dt.year}")
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    ));
-  }
-}
-
-class DateTabTicketPage extends StatelessWidget {
-  const DateTabTicketPage({
-    super.key,
-    required int indexTab,
-    required this.dt,
-    required this.updateTabIndex,
-    required this.convertDay,
-    required this.currentTabIndex,
-  }) : _indexTab = indexTab;
-
-  final String Function(int) convertDay;
-  final ValueChanged<int> updateTabIndex;
-  final int _indexTab;
-  final DateTime dt;
-  final int currentTabIndex;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => updateTabIndex(_indexTab),
-      splashColor: Colors.black,
-      child: SizedBox(
-        width: 115,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 65,
-              height: 40,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: currentTabIndex == _indexTab
-                        ? AppColor.primaryColor
-                        : Colors.transparent,
-                    width: 1.0,
-                  ),
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    convertDay(dt.weekday),
-                    style: TextStyle(
-                        fontSize: 8,
-                        color: currentTabIndex == _indexTab
-                            ? AppColor.primaryColor
-                            : Colors.black), //ubah
-                  ),
-                  Text(
-                    dt.day.toString(),
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: currentTabIndex == _indexTab
-                            ? AppColor.primaryColor
-                            : Colors.black),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
