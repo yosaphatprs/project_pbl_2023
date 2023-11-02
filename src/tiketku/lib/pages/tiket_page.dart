@@ -6,89 +6,82 @@ class TiketPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.black,
-            bottom: const TabBar(
-              labelColor: Colors.black,
-              tabs: [
-                Tab(text: 'Aktif'),
-                Tab(text: 'Menunggu',),
-              ],
-            ),
-            title: const Text('Tiket'),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          bottom: const TabBar(
+            labelColor: Colors.black,
+            tabs: [
+              Tab(text: 'Aktif'),
+              Tab(
+                text: 'Menunggu',
+              ),
+            ],
           ),
-          body: TabBarView(
-            children: [
-              Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
+          title: const Text('Tiket'),
+        ),
+        body: TabBarView(
+          children: [
+            Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
                         margin: EdgeInsets.only(top: 10, right: 10),
                         height: 30,
                         width: 125,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 208, 229, 246),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
+                            color: Color.fromARGB(255, 208, 229, 246),
+                            borderRadius: BorderRadius.circular(20)),
                         child: Center(
                           child: Text(
                             'KA Antar Kota',
                             style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold
-                            ),
+                                fontSize: 12,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
                           ),
-                        )
-                      ),
-                      Container(
+                        )),
+                    Container(
                         margin: EdgeInsets.only(top: 10, right: 10),
                         height: 30,
                         width: 100,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 208, 229, 246),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
+                            color: Color.fromARGB(255, 208, 229, 246),
+                            borderRadius: BorderRadius.circular(20)),
                         child: Center(
                           child: Text(
                             'KA Lokal',
                             style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold
-                            ),
+                                fontSize: 12,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
                           ),
-                        )
-                      ),
-                      Container(
+                        )),
+                    Container(
                         margin: EdgeInsets.only(top: 10),
                         height: 30,
                         width: 110,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 208, 229, 246),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
+                            color: Color.fromARGB(255, 208, 229, 246),
+                            borderRadius: BorderRadius.circular(20)),
                         child: Center(
                           child: Text(
                             'Layanan',
                             style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold
-                            ),
+                                fontSize: 12,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
                           ),
-                        )
-                      )
-                    ],
-                  ),
-                  Container(
+                        ))
+                  ],
+                ),
+                Container(
                     margin: EdgeInsets.only(top: 20),
                     height: 35,
                     width: 200,
@@ -100,82 +93,71 @@ class TiketPage extends StatelessWidget {
                       child: Text(
                         'CEK TIKET',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold
-                        ),
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold),
                       ),
-                    )
-                  ),
-                ],
-              ),
-              Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 10, right: 10),
-                        height: 30,
-                        width: 125,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 208, 229, 246),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Center(
-                          child: Text(
-                            'KA Antar Kota',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        )
+                    )),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                    margin: EdgeInsets.only(top: 10, right: 10),
+                    height: 30,
+                    width: 125,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 208, 229, 246),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'KA Antar Kota',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10, right: 10),
-                        height: 30,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 208, 229, 246),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Center(
-                          child: Text(
-                            'KA Lokal',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        )
+                    )),
+                Container(
+                    margin: EdgeInsets.only(top: 10, right: 10),
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 208, 229, 246),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'KA Lokal',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        height: 30,
-                        width: 110,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 208, 229, 246),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Layanan',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        )
-                      )
-                    ],
-                  ),
-            ],
-          ),
-          bottomNavigationBar: const BottomNavbar(title: 'Tiket'),
+                    )),
+                Container(
+                    margin: EdgeInsets.only(top: 10),
+                    height: 30,
+                    width: 110,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 208, 229, 246),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Center(
+                      child: Text(
+                        'Layanan',
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ))
+              ],
+            ),
+          ],
         ),
-      );
+        bottomNavigationBar: const BottomNavbar(title: 'Tiket'),
+      ),
+    );
   }
 }

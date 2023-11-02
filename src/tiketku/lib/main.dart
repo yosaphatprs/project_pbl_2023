@@ -10,12 +10,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tiketku/pages/jadwal_kereta.dart';
 import 'package:tiketku/pages/login_page.dart';
 import 'package:tiketku/pages/riwayatTransaski.dart';
+import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/pages/tiket_page.dart';
 import 'package:tiketku/widgets/bottom_navbar.dart';
 
 import 'pages/dashboard_akun.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,

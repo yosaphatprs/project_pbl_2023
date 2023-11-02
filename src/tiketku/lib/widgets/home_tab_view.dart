@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiketku/constants/colors.dart';
 import 'package:tiketku/widgets/home_card.dart';
+import 'package:tiketku/widgets/home_card_lokal.dart';
 
 class HomeTabView extends StatelessWidget {
   const HomeTabView({
@@ -50,7 +51,17 @@ class HomeTabView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Text("KA Lokal"),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: HomeCardLokal(
+                                list: list, penumpang: penumpang, bayi: bayi),
+                          )
+                        ],
+                      ),
+                    )
                   ]),
                 ),
               ],
