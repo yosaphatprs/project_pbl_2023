@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, unused_import, prefer_const_constructors, prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables, prefer_const_literals_to_create_immutables, camel_case_types, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiketku/widgets/bottom_navbar.dart';
