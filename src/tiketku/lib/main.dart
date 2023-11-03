@@ -72,6 +72,12 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
+        case '/tentang':
+          return PageTransition(
+            child: AboutPage(), 
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+            );
         default:
           return MaterialPageRoute(builder: (context) => const MyApp());
       }

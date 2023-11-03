@@ -49,7 +49,7 @@ class DashboardAkun extends StatelessWidget {
                         height: 30,
                         // color: Colors.brown,
                         child: Text(
-                          'NASYAWA RAMADHIA',
+                          'Hai Lek John',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ class DashboardAkun extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                             letterSpacing: 2,
-                            color: Colors.grey,
+                            color: Color.fromARGB(255, 125, 122, 122),
                           ),
                         ),
                       )
@@ -146,6 +146,10 @@ class DashboardAkun extends StatelessWidget {
                         width: 350,
                         height: 50,
                         // color: Colors.blue,
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).pushNamed('/tentang');
+                          },
                         child: Row(
                           children: [
                             Container(
@@ -177,6 +181,7 @@ class DashboardAkun extends StatelessWidget {
                             ),
                           ],
                         ),
+                        )
                       ),
                       Container(
                         width: 350,
