@@ -41,3 +41,58 @@ dst
 # Credits
 
 (jika ada aset image, icon, font, cantumkan di sini sumber URL)
+
+# **Dokumentasi Screenshoot Tiketku:**
+- User akan berada screen [SPLASHSCREEN] yang akan memunculkan logo dari Tiketku, seperti gambar berikut:
+
+![Screenshot hello_world](docs/splash_screen.jpg)
+
+- User akan berada laman login pengguna [LOGIN] dimana user akan mengisikan alamat email dan password bagi yang sudah memiliki akun, seperti gambar berikut:
+
+![Screenshot hello_world](docs/login.jpg)
+
+- Bagi user yang belum memiliki akun, maka dapat menekan text button 'Daftar sekarang' yang nantinya akan berganti ke laman register akun [REGISTER] dimana user akan mengisikan alamat email, nomor telepon dan password seperti gambar berikut:
+
+![Screenshot hello_world](docs/register.jpg)
+
+- User akan berada laman beranda pengguna setelah berhasil login [BERANDA/HOME] dimana user dapat memesan tiket kereta dengan pilihan KA Antar Kota dan KA Lokal, seperti gambar berikut:
+
+![Screenshot hello_world](docs/home_1.jpg)
+
+![Screenshot hello_world](docs/home_2.jpg)
+
+- User dapat memilih jadwal kereta yang sudah tersedia [JADWAL KERETA] dimana user dapat memilih kereta dengan jenis kereta, jam keberangkatan sampai jam tiba di tempat tujuan, seperti gambar berikut:
+
+![Screenshot hello_world](docs/jadwal_kereta.jpg)
+
+- User memasukkan data penumpang, dengan fitur unggulan kita yaitu OCR KTP [DETAIL TRANSAKSI] dimana user dapat menggunakan fitur scan guna mengisi otomatis dari data scan KTP, seperti gambar berikut:
+
+![Screenshot hello_world](docs/detail_tx.jpg)
+
+![Screenshot hello_world](docs/detail_tx2.jpg)
+
+![Screenshot hello_world](docs/scan_ktp.jpg)
+
+- Setelah itu, user dapat melihat detail pemesanan tiket dan dapat menggunakannya dengan 'cek tiket' pada kereta yang sudah dipesannya [TIKET] seperti gambar berikut:
+
+![Screenshot hello_world](docs/tiket.jpg)
+
+![Screenshot hello_world](docs/tiket_2.jpg)
+
+- User juga dapat melihat riwayat transaksi pembelian tiket dan layanan [RIWAYAT TRANSAKSI TIKET & LAYANAN], seperti gambar berikut:
+
+![Screenshot hello_world](docs/riwayat_tx.jpg)
+
+![Screenshot hello_world](docs/riwayat_layanan.jpg)
+
+![Screenshot hello_world](docs/detail_riwayat_tx.jpg)
+
+- User dapat mengubah dan melihat dashboard akun pengguna [DASHBOARD AKUN] dimana user dapat melihat detail akun, pusat bantuan dan tentang tiketku, seperti gambar berikut:
+
+![Screenshot hello_world](docs/dashboard_akun.jpg)
+
+![Screenshot hello_world](docs/tentang.jpg)
+
+- Ketika user ingin logout darii akun tersebut maka ada button 'LOGOUT' [LOGOUT] dimana user akan kembali ke laman login akun, seperti gambar berikut:
+
+![Screenshot hello_world](docs/login.jpg)
