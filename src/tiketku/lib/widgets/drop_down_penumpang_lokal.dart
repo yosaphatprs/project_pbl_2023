@@ -21,7 +21,7 @@ class DropDownPenumpangLokal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
-              width: 312,
+              width: 294,
               child: DropdownButton(
                 items: penumpang.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(

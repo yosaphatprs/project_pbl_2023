@@ -28,12 +28,11 @@ flutter_native_splash:
   ios: true
   web: true
   image_dark: assets/tiketku.png
-
-android_12:
-  icon_background_color: "#FFFFFF"  
-  image: assets/splash_screen.png
-  icon_background_color_dark: "#FFFFFF"
-  image_dark: assets/splash_screen.png
+  android_12:
+    icon_background_color: "#FFFFFF"  
+    image: assets/tiketku.png
+    icon_background_color_dark: "#FFFFFF"
+    image_dark: assets/tiketku.png
 
 flutter:
   uses-material-design: true

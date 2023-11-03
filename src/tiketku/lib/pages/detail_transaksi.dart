@@ -206,7 +206,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           height: 8,
                                         ),
                                         SizedBox(
-                                          width: 362,
+                                          width: 344,
                                           height: 36,
                                           child: TextField(
                                             decoration: InputDecoration(
@@ -240,7 +240,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           height: 8,
                                         ),
                                         SizedBox(
-                                          width: 362,
+                                          width: 344,
                                           height: 36,
                                           child: TextField(
                                             decoration: InputDecoration(
@@ -274,7 +274,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           height: 8,
                                         ),
                                         SizedBox(
-                                          width: 362,
+                                          width: 344,
                                           height: 36,
                                           child: TextField(
                                             decoration: InputDecoration(
@@ -375,7 +375,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           height: 8,
                                         ),
                                         SizedBox(
-                                          width: 362,
+                                          width: 344,
                                           height: 36,
                                           child: TextField(
                                             decoration: InputDecoration(
@@ -409,7 +409,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           height: 8,
                                         ),
                                         SizedBox(
-                                          width: 362,
+                                          width: 344,
                                           height: 36,
                                           child: TextField(
                                             decoration: InputDecoration(

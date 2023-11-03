@@ -17,7 +17,7 @@ class DashboardAkun extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
       ),
-      body:Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -32,12 +32,11 @@ class DashboardAkun extends StatelessWidget {
                     width: 90,
                     height: 90,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      image: DecorationImage(
-                        image: AssetImage('images/profil.jpg'),
-                        fit: BoxFit.fill,
-                      )
-                    ),
+                        borderRadius: BorderRadius.circular(100),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/profil.jpg'),
+                          fit: BoxFit.fill,
+                        )),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -80,172 +79,157 @@ class DashboardAkun extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 30),
-                  width: 350,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(-3,-3),
-                        blurRadius: 10,
-                        spreadRadius: 1
-                      )
-                    ]
-                  )
-                ),
+                    margin: EdgeInsets.only(top: 30),
+                    width: 350,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.transparent,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              offset: Offset(-3, -3),
+                              blurRadius: 10,
+                              spreadRadius: 1)
+                        ])),
                 Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white
-                  ),
-                  margin: EdgeInsets.only(top: 30),
-                  width: 350,
-                  height: 150,
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 350,
-                        height: 50,
-                        // color: Colors.blue,
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                Icons.help_outlined
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white),
+                    margin: EdgeInsets.only(top: 30),
+                    width: 350,
+                    height: 150,
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 350,
+                          height: 50,
+                          // color: Colors.blue,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(Icons.help_outlined),
                               ),
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              margin: EdgeInsets.only(left: 30),
-                              width: 200,
-                              height: 50,
-                              child: Text(
-                                'Pusat Bantuan',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                margin: EdgeInsets.only(left: 30),
+                                width: 200,
+                                height: 50,
+                                child: Text(
+                                  'Pusat Bantuan',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                Icons.keyboard_arrow_right
+                              Container(
+                                margin: EdgeInsets.only(left: 20),
+                                width: 50,
+                                height: 50,
+                                child: Icon(Icons.keyboard_arrow_right),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 350,
-                        height: 50,
-                        // color: Colors.blue,
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.of(context).pushNamed('/tentang');
-                          },
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                Icons.info
+                        Container(
+                            width: 350,
+                            height: 50,
+                            // color: Colors.blue,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushNamed('/tentang');
+                              },
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.info),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    margin: EdgeInsets.only(left: 30),
+                                    width: 200,
+                                    height: 50,
+                                    child: Text(
+                                      'Tentang',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 20),
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.keyboard_arrow_right),
+                                  ),
+                                ],
                               ),
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              margin: EdgeInsets.only(left: 30),
-                              width: 200,
-                              height: 50,
-                              child: Text(
-                                'Tentang',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                            )),
+                        Container(
+                          width: 350,
+                          height: 50,
+                          // color: Colors.blue,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                child: Icon(Icons.edit),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                margin: EdgeInsets.only(left: 30),
+                                width: 200,
+                                height: 50,
+                                child: Text(
+                                  'Detail Akun',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                Icons.keyboard_arrow_right
+                              Container(
+                                margin: EdgeInsets.only(left: 20),
+                                width: 50,
+                                height: 50,
+                                child: Icon(Icons.keyboard_arrow_right),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        )
-                      ),
-                      Container(
-                        width: 350,
-                        height: 50,
-                        // color: Colors.blue,
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                Icons.edit
-                              ),
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              margin: EdgeInsets.only(left: 30),
-                              width: 200,
-                              height: 50,
-                              child: Text(
-                                'Detail Akun',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              width: 50,
-                              height: 50,
-                              child: Icon(
-                                Icons.keyboard_arrow_right
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                )
+                      ],
+                    ))
               ],
             ),
-            Container(
-                    margin: EdgeInsets.only(top: 30),
-                    height: 35,
-                    width: 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.orange,
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Logout',
-                        style: TextStyle(
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed('/login');
+              },
+              child: Container(
+                  margin: EdgeInsets.only(top: 30),
+                  height: 35,
+                  width: 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.orange,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
                           color: Colors.white,
                           fontSize: 13,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    )
-                  ),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )),
+            ),
           ],
         ),
-      ) ,
+      ),
       bottomNavigationBar: const BottomNavbar(title: 'Akun'),
     );
   }
