@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, prefer_const_constructors, deprecated_member_use, avoid_print, unnecessary_const, sort_child_properties_last, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:tiketku/pages/home.dart';
 
 void main() => runApp(const LoginPage());
 
@@ -173,6 +174,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   Navigator.pushNamed(context, '/');
                   print(nameController.text);
                   print(passwordController.text);
+                  MaterialPageRoute(builder: (context) => HomePage());
                 },
                 child: const Text('Masuk'),
               ),
@@ -449,9 +451,12 @@ class RegisterPage extends StatelessWidget {
                         15), // Ganti nilai sesuai keinginan Anda
                   ),
                 ),
-                onPressed: () {
-                  // Aksi saat tombol daftar ditekan
-                },
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
                 child: const Text('Buat Akun'),
               ),
             ),
