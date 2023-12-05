@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'drop_down_kelas_penumpang_home.dart';
 import 'primary_route_button.dart';
 
-class HomeCard extends StatelessWidget {
-  const HomeCard({
+class HomeCard extends StatefulWidget {
+  HomeCard({
     super.key,
     required this.list,
     required this.penumpang,
@@ -13,6 +13,19 @@ class HomeCard extends StatelessWidget {
   final List<String> list;
   final List<String> penumpang;
   final List<String> bayi;
+  DateTime? dateTimeBerangkat;
+  DateTime? dateTimePulang;
+
+  @override
+  State<HomeCard> createState() => _HomeCardState();
+}
+
+class _HomeCardState extends State<HomeCard> {
+  DateTime? dateTimeBerangkat;
+  DateTime? dateTimePulang;
+  final TextEditingController _controllerDateBerangkat =
+      TextEditingController();
+  final TextEditingController _controllerDatePulang = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -115,18 +128,42 @@ class HomeCard extends StatelessWidget {
                     width: 125,
                     height: 10,
                     child: TextField(
+                        controller: _controllerDateBerangkat,
                         readOnly: true, // when true user cannot edit text
-                        onTap: () async {
-                          //when click we have to show the datepicker
+                        onTap: () {
+                          showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2099),
+                          ).then((date) {
+                            _controllerDateBerangkat.text =
+                                date.toString().substring(0, 10);
+                            setState(() {
+                              dateTimeBerangkat = date;
+                            });
+                          });
                         }),
                   ),
                   SizedBox(
                     width: 125,
                     height: 10,
                     child: TextField(
+                        controller: _controllerDatePulang,
                         readOnly: true, // when true user cannot edit text
-                        onTap: () async {
-                          //when click we have to show the datepicker
+                        onTap: () {
+                          showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2099),
+                          ).then((date) {
+                            _controllerDatePulang.text =
+                                date.toString().substring(0, 10);
+                            setState(() {
+                              dateTimePulang = date;
+                            });
+                          });
                         }),
                   )
                 ],
@@ -141,7 +178,9 @@ class HomeCard extends StatelessWidget {
             children: [Text("Kelas Kereta"), Text("Penumpang")],
           ),
           DropDownKelasPenumpangHome(
-              list: list, penumpang: penumpang, bayi: bayi),
+              list: widget.list,
+              penumpang: widget.penumpang,
+              bayi: widget.bayi),
           const Row(
             children: [
               Text(

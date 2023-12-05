@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tiketku/pages/detailAkun.dart';
 import 'package:tiketku/pages/detailRiwayat.dart';
 import 'package:tiketku/pages/detail_transaksi.dart';
 import 'package:tiketku/pages/home.dart';
@@ -15,7 +16,6 @@ import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/pages/tiket_page.dart';
 import 'package:tiketku/pages/detailTiket.dart';
 import 'package:tiketku/widgets/bottom_navbar.dart';
-
 
 import 'pages/dashboard_akun.dart';
 
@@ -75,7 +75,7 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
-         case '/detail_tiket':
+        case '/detail_tiket':
           return PageTransition(
               child: const DetailTransaksi(),
               type: PageTransitionType.fade,
@@ -90,6 +90,12 @@ void main() {
         case '/detailRiwayat':
           return PageTransition(
             child: DetailRiwayatPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        case '/detailAkun':
+          return PageTransition(
+            child: DetailAkun(),
             type: PageTransitionType.fade,
             duration: const Duration(milliseconds: 400),
           );
