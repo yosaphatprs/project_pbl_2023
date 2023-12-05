@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DropDownKelasPenumpangHome extends StatelessWidget {
+class DropDownKelasPenumpangHome extends StatefulWidget {
   const DropDownKelasPenumpangHome({
     super.key,
     required this.list,
@@ -13,6 +13,17 @@ class DropDownKelasPenumpangHome extends StatelessWidget {
   final List<String> bayi;
 
   @override
+  State<DropDownKelasPenumpangHome> createState() =>
+      _DropDownKelasPenumpangHomeState();
+}
+
+class _DropDownKelasPenumpangHomeState
+    extends State<DropDownKelasPenumpangHome> {
+  String? kelas;
+  String? penumpang;
+  String? bayi;
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,7 +31,7 @@ class DropDownKelasPenumpangHome extends StatelessWidget {
         SizedBox(
           width: 125,
           child: DropdownButton(
-            items: list.map<DropdownMenuItem<String>>((String value) {
+            items: widget.list.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(
@@ -30,12 +41,11 @@ class DropDownKelasPenumpangHome extends StatelessWidget {
               );
             }).toList(),
             onChanged: (String? value) {
-              // This is called when the user selects an item.
-              // setState(() {
-              //   dropdownValue = value!;
-              // });
+              setState(() {
+                kelas = value;
+              });
             },
-            value: list[0],
+            value: kelas ?? widget.list[0],
           ),
         ),
         Row(
@@ -44,7 +54,8 @@ class DropDownKelasPenumpangHome extends StatelessWidget {
             SizedBox(
               width: 55,
               child: DropdownButton(
-                items: penumpang.map<DropdownMenuItem<String>>((String value) {
+                items: widget.penumpang
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(
@@ -54,17 +65,16 @@ class DropDownKelasPenumpangHome extends StatelessWidget {
                   );
                 }).toList(),
                 onChanged: (String? value) {
-                  // This is called when the user selects an item.
-                  // setState(() {
-                  //   dropdownValue = value!;
-                  // });
+                  setState(() {
+                    penumpang = value;
+                  });
                 },
-                value: penumpang[0],
+                value: penumpang ?? widget.penumpang[0],
               ),
             ),
             const SizedBox(width: 15),
             DropdownButton(
-              items: bayi.map<DropdownMenuItem<String>>((String value) {
+              items: widget.bayi.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(
@@ -74,12 +84,11 @@ class DropDownKelasPenumpangHome extends StatelessWidget {
                 );
               }).toList(),
               onChanged: (String? value) {
-                // This is called when the user selects an item.
-                // setState(() {
-                //   dropdownValue = value!;
-                // });
+                setState(() {
+                  bayi = value;
+                });
               },
-              value: bayi[0],
+              value: bayi ?? widget.bayi[0],
             ),
           ],
         ),
