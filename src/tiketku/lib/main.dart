@@ -13,7 +13,9 @@ import 'package:tiketku/pages/login_page.dart';
 import 'package:tiketku/pages/riwayatTransaski.dart';
 import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/pages/tiket_page.dart';
+import 'package:tiketku/pages/detailTiket.dart';
 import 'package:tiketku/widgets/bottom_navbar.dart';
+
 
 import 'pages/dashboard_akun.dart';
 
@@ -68,6 +70,12 @@ void main() {
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
         case '/detail_transaksi':
+          return PageTransition(
+              child: const DetailTransaksi(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+         case '/detail_tiket':
           return PageTransition(
               child: const DetailTransaksi(),
               type: PageTransitionType.fade,
