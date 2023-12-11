@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tiketku/pages/login_page.dart';
 import 'drop_down_kelas_penumpang_home.dart';
 import 'primary_route_button.dart';
 
+// ignore: must_be_immutable
 class HomeCard extends StatefulWidget {
-  HomeCard({
+  const HomeCard({
     super.key,
     required this.list,
     required this.penumpang,
@@ -13,8 +15,6 @@ class HomeCard extends StatefulWidget {
   final List<String> list;
   final List<String> penumpang;
   final List<String> bayi;
-  DateTime? dateTimeBerangkat;
-  DateTime? dateTimePulang;
 
   @override
   State<HomeCard> createState() => _HomeCardState();
@@ -23,9 +23,22 @@ class HomeCard extends StatefulWidget {
 class _HomeCardState extends State<HomeCard> {
   DateTime? dateTimeBerangkat;
   DateTime? dateTimePulang;
+  final TextEditingController _controllerAsal = TextEditingController();
+  final TextEditingController _controllerTujuan = TextEditingController();
   final TextEditingController _controllerDateBerangkat =
       TextEditingController();
   final TextEditingController _controllerDatePulang = TextEditingController();
+  String? asal;
+  String? tujuan;
+  bool? isPP;
+  bool isSwap = false;
+
+  void _changeSwapStatus() {
+    setState(() {
+      print("Test SetState");
+      isSwap = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +49,20 @@ class _HomeCardState extends State<HomeCard> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
         child: Column(children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(child: Text("Asal")),
               Expanded(
-                child: Icon(Icons.swap_horizontal_circle_outlined),
+                child: InkWell(
+                    child: const Icon(Icons.swap_horizontal_circle_outlined),
+                    onTap: () {
+                      _changeSwapStatus;
+                      asal = _controllerAsal.text;
+                      tujuan = _controllerTujuan.text;
+                      _controllerAsal.text = tujuan!;
+                      _controllerTujuan.text = asal!;
+                    }),
               ),
               Expanded(
                   child: Row(
@@ -53,7 +74,7 @@ class _HomeCardState extends State<HomeCard> {
               ))
             ],
           ),
-          const Column(
+          Column(
             children: [
               SizedBox(
                 height: 16,
@@ -65,27 +86,39 @@ class _HomeCardState extends State<HomeCard> {
                     width: 125,
                     height: 10,
                     child: TextField(
+                      controller: _controllerAsal,
                       style: TextStyle(fontSize: 12),
                       decoration: InputDecoration(
                         border: UnderlineInputBorder(),
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          asal = value;
+                        });
+                      },
                     ),
                   ),
                   SizedBox(
                     width: 125,
                     height: 10,
                     child: TextField(
+                      controller: _controllerTujuan,
                       style: TextStyle(fontSize: 12),
                       decoration: InputDecoration(
                         border: UnderlineInputBorder(),
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          tujuan = value;
+                        });
+                      },
                     ),
                   ),
                 ],
               ),
             ],
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(flex: 1, child: Text("Tgl. Berangkat")),
@@ -111,7 +144,11 @@ class _HomeCardState extends State<HomeCard> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text("Tgl. Kembali"),
+                      Text(
+                        "Tgl. Kembali",
+                        style: TextStyle(
+                            color: isPP == true ? Colors.black : Colors.grey),
+                      ),
                     ],
                   ))
             ],
@@ -150,20 +187,23 @@ class _HomeCardState extends State<HomeCard> {
                     height: 10,
                     child: TextField(
                         controller: _controllerDatePulang,
+                        enabled: isPP == true ? true : false,
                         readOnly: true, // when true user cannot edit text
                         onTap: () {
-                          showDatePicker(
-                            context: context,
-                            initialDate: DateTime.now(),
-                            firstDate: DateTime(2000),
-                            lastDate: DateTime(2099),
-                          ).then((date) {
-                            _controllerDatePulang.text =
-                                date.toString().substring(0, 10);
-                            setState(() {
-                              dateTimePulang = date;
+                          if (isPP == true) {
+                            showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime(2099),
+                            ).then((date) {
+                              _controllerDatePulang.text =
+                                  date.toString().substring(0, 10);
+                              setState(() {
+                                dateTimePulang = date;
+                              });
                             });
-                          });
+                          }
                         }),
                   )
                 ],

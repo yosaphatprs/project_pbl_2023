@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tiketku/widgets/drop_down_penumpang_lokal.dart';
-import 'drop_down_kelas_penumpang_home.dart';
 import 'primary_route_button.dart';
 
-class HomeCardLokal extends StatelessWidget {
+class HomeCardLokal extends StatefulWidget {
   const HomeCardLokal({
     super.key,
     required this.list,
@@ -16,6 +15,23 @@ class HomeCardLokal extends StatelessWidget {
   final List<String> bayi;
 
   @override
+  State<HomeCardLokal> createState() => _HomeCardLokalState();
+}
+
+class _HomeCardLokalState extends State<HomeCardLokal> {
+  DateTime? dateTimeBerangkat;
+  DateTime? dateTimePulang;
+  final TextEditingController _controllerAsal = TextEditingController();
+  final TextEditingController _controllerTujuan = TextEditingController();
+  final TextEditingController _controllerDateBerangkat =
+      TextEditingController();
+  final TextEditingController _controllerDatePulang = TextEditingController();
+  String? asal;
+  String? tujuan;
+  bool? isPP;
+  bool isSwap = false;
+
+  @override
   Widget build(BuildContext context) {
     return Card(
       shadowColor: Colors.black,
@@ -24,12 +40,19 @@ class HomeCardLokal extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
         child: Column(children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(child: Text("Asal")),
               Expanded(
-                child: Icon(Icons.swap_horizontal_circle_outlined),
+                child: InkWell(
+                    child: const Icon(Icons.swap_horizontal_circle_outlined),
+                    onTap: () {
+                      asal = _controllerAsal.text;
+                      tujuan = _controllerTujuan.text;
+                      _controllerAsal.text = tujuan!;
+                      _controllerTujuan.text = asal!;
+                    }),
               ),
               Expanded(
                   child: Row(
@@ -41,7 +64,7 @@ class HomeCardLokal extends StatelessWidget {
               ))
             ],
           ),
-          const Column(
+          Column(
             children: [
               SizedBox(
                 height: 16,
@@ -53,6 +76,7 @@ class HomeCardLokal extends StatelessWidget {
                     width: 125,
                     height: 10,
                     child: TextField(
+                      controller: _controllerAsal,
                       style: TextStyle(fontSize: 12),
                       decoration: InputDecoration(
                         border: UnderlineInputBorder(),
@@ -63,6 +87,7 @@ class HomeCardLokal extends StatelessWidget {
                     width: 125,
                     height: 10,
                     child: TextField(
+                      controller: _controllerTujuan,
                       style: TextStyle(fontSize: 12),
                       decoration: InputDecoration(
                         border: UnderlineInputBorder(),
@@ -116,18 +141,45 @@ class HomeCardLokal extends StatelessWidget {
                     width: 125,
                     height: 10,
                     child: TextField(
+                        controller: _controllerDateBerangkat,
                         readOnly: true, // when true user cannot edit text
-                        onTap: () async {
-                          //when click we have to show the datepicker
+                        onTap: () {
+                          showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2099),
+                          ).then((date) {
+                            _controllerDateBerangkat.text =
+                                date.toString().substring(0, 10);
+                            setState(() {
+                              dateTimeBerangkat = date;
+                            });
+                          });
                         }),
                   ),
                   SizedBox(
                     width: 125,
                     height: 10,
                     child: TextField(
+                        controller: _controllerDatePulang,
+                        enabled: isPP == true ? true : false,
                         readOnly: true, // when true user cannot edit text
-                        onTap: () async {
-                          //when click we have to show the datepicker
+                        onTap: () {
+                          if (isPP == true) {
+                            showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime(2099),
+                            ).then((date) {
+                              _controllerDatePulang.text =
+                                  date.toString().substring(0, 10);
+                              setState(() {
+                                dateTimePulang = date;
+                              });
+                            });
+                          }
                         }),
                   )
                 ],
@@ -141,7 +193,10 @@ class HomeCardLokal extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [Text("Penumpang")],
           ),
-          DropDownPenumpangLokal(list: list, penumpang: penumpang, bayi: bayi),
+          DropDownPenumpangLokal(
+              list: widget.list,
+              penumpang: widget.penumpang,
+              bayi: widget.bayi),
           const Row(
             children: [
               Text(

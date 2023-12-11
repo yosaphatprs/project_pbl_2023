@@ -36,15 +36,15 @@ class HomePage extends StatelessWidget {
 
     const List<String> bayi = <String>[
       '0 Bayi',
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
+      '1 Bayi',
+      '2 Bayi',
+      '3 Bayi',
+      '4 Bayi',
+      '5 Bayi',
+      '6 Bayi',
+      '7 Bayi',
+      '8 Bayi',
+      '9 Bayi',
     ];
 
     return Scaffold(
