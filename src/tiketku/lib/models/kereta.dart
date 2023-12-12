@@ -1,4 +1,4 @@
-import 'GerbongKereta.dart';
+import 'gerbong_kereta.dart';
 
 class Kereta {
   String nama;
