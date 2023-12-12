@@ -396,7 +396,6 @@ class UbahDataPribadi extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Row(
-                        
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
@@ -471,88 +470,79 @@ class ContainerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 20, bottom: 20),
       child: Column(
         children: [
-          SizedBox(
-            width: 364,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 255, 102, 0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          7), // Ganti nilai sesuai keinginan Anda
-                    ),
-                  ),
-                  onPressed: () {
-                    // Aksi saat tombol daftar ditekan
-                  },
-                  child: const Text('Keluar Akun',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      )),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed('/login');
+            },
+            child: Container(
+                margin: EdgeInsets.only(top: 30),
+                height: 35,
+                width: 350,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.orange,
                 ),
-              ],
-            ),
+                child: Center(
+                  child: Text(
+                    'Keluar Akun',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
           ),
-          SizedBox(height: 20),
           SizedBox(
-            width: 364,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary:  Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          7), // Ganti nilai sesuai keinginan Anda
-                    ),
-                  ),
-                  onPressed: () {
-                    // Aksi saat tombol daftar ditekan
-                  },
-                  child: const Text('Hapus Akun',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      )),
-                ),
-              ],
-            ),
+            height: 10,
           ),
-
-          SizedBox(height: 20),
-           SizedBox(
-            width: 364,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary:  Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          7), // Ganti nilai sesuai keinginan Anda
-                    ),
-                  ),
-                  onPressed: () {
-                    // Aksi saat tombol daftar ditekan
-                  },
-                  child: const Text('Ganti Sandi',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      )),
+          InkWell(
+            onTap: () {
+              // Navigator.of(context).pushNamed('/login');
+            },
+            child: Container(
+                height: 35,
+                width: 350,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  border: Border.all(color: Colors.black),
                 ),
-              ],
-            ),
+                child: Center(
+                  child: Text(
+                    'Hapus Akun',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed('/ubahSandi');
+            },
+            child: Container(
+                height: 35,
+                width: 350,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Center(
+                  child: Text(
+                    'Ganti Kata Sandi',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
           ),
         ],
       ),
