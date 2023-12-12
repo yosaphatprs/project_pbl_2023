@@ -6,11 +6,13 @@ import 'package:page_transition/page_transition.dart';
 import 'package:tiketku/pages/detailAkun.dart';
 import 'package:tiketku/pages/detailRiwayat.dart';
 import 'package:tiketku/pages/detail_transaksi.dart';
+import 'package:tiketku/pages/ganti_password.dart';
 import 'package:tiketku/pages/home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiketku/pages/jadwal_kereta.dart';
 import 'package:tiketku/pages/login_page.dart';
+import 'package:tiketku/pages/pusat_bantuan.dart';
 import 'package:tiketku/pages/riwayatTransaski.dart';
 import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/pages/tiket_page.dart';
@@ -100,6 +102,45 @@ void main() {
               child: DetailAkun(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/tentang':
+          return PageTransition(
+            child: AboutPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        case '/detailRiwayat':
+          return PageTransition(
+            child: DetailRiwayatPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        case '/detailAkun':
+          return PageTransition(
+            child: DetailAkun(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        case '/pusatBantuan':
+          return PageTransition(
+            child: PusatBantuanPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        case '/ubahSandi':
+          return PageTransition(
+            child: UbahKataSandiPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        default:
+          return MaterialPageRoute(builder: (context) => const MyApp());
+      }
+    },
+    // routes: {
+    //   '/': (context) => const HomePage(),
+    //   '/tentang': (context) => const MyApp(),
+    // },
             );
           default:
             return MaterialPageRoute(builder: (context) => const MyApp());

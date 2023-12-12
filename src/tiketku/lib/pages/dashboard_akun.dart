@@ -105,6 +105,10 @@ class DashboardAkun extends StatelessWidget {
                           width: 350,
                           height: 50,
                           // color: Colors.blue,
+                          child:InkWell(
+                            onTap:                          () {
+                                Navigator.of(context).pushNamed('/pusatBantuan');
+                              },
                           child: Row(
                             children: [
                               Container(
@@ -132,7 +136,7 @@ class DashboardAkun extends StatelessWidget {
                               ),
                             ],
                           ),
-                        ),
+                        )),
                         Container(
                             width: 350,
                             height: 50,
@@ -170,37 +174,41 @@ class DashboardAkun extends StatelessWidget {
                               ),
                             )),
                         Container(
-                          width: 350,
-                          height: 50,
-                          // color: Colors.blue,
-                          child: Row(
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                child: Icon(Icons.edit),
-                              ),
-                              Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 30),
-                                width: 200,
-                                height: 50,
-                                child: Text(
-                                  'Detail Akun',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                            width: 350,
+                            height: 50,
+                            // color: Colors.blue,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushNamed('/detailAkun');
+                              },
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.edit),
                                   ),
-                                ),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    margin: EdgeInsets.only(left: 30),
+                                    width: 200,
+                                    height: 50,
+                                    child: Text(
+                                      'Detail Akun',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 20),
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.keyboard_arrow_right),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                margin: EdgeInsets.only(left: 20),
-                                width: 50,
-                                height: 50,
-                                child: Icon(Icons.keyboard_arrow_right),
-                              ),
-                            ],
-                          ),
-                        ),
+                            )),
                       ],
                     ))
               ],
