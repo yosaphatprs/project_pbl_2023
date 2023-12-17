@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:tiketku/constants/colors.dart';
 import 'package:camera/camera.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 late List<CameraDescription> _cameras;
 
@@ -20,6 +23,7 @@ class ScanKTP extends StatefulWidget {
 
 class _ScanKTPState extends State<ScanKTP> {
   late CameraController controller;
+  XFile? capturedImage;
 
   Future initCamera(CameraDescription cameraDescription) async {
     controller = CameraController(cameraDescription, ResolutionPreset.high);
@@ -121,13 +125,17 @@ class _ScanKTPState extends State<ScanKTP> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: controller.value.isInitialized
-                      ? AspectRatio(
-                          aspectRatio: controller.value.aspectRatio,
-                          child: CameraPreview(controller),
+                  child: capturedImage != null
+                      ? Image.file(
+                          File(capturedImage!.path),
+                          fit: BoxFit.cover,
                         )
-                      : Container(),
+                      : controller.value.isInitialized
+                          ? AspectRatio(
+                              aspectRatio: controller.value.aspectRatio,
+                              child: CameraPreview(controller),
+                            )
+                          : Container(),
                 ),
               ),
             ),
@@ -135,20 +143,38 @@ class _ScanKTPState extends State<ScanKTP> {
               height: 24,
             ),
             ElevatedButton(
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(96.0))),
-                    padding: MaterialStateProperty.all(
-                        EdgeInsets.symmetric(horizontal: 32, vertical: 32)),
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColor.primaryColor)),
-                onPressed: () => {},
-                child: Icon(
-                  Icons.camera_alt,
-                  size: 32,
-                  color: Colors.white,
-                ))
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(96.0),
+                  ),
+                ),
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+                ),
+                backgroundColor:
+                    MaterialStateProperty.all(AppColor.primaryColor),
+              ),
+              onPressed: () async {
+                if (controller.value.isInitialized) {
+                  try {
+                    final XFile picture = await controller.takePicture();
+                    setState(() {
+                      capturedImage = picture;
+                    });
+                    await ImageGallerySaver.saveFile(picture.path);
+                    debugPrint("Picture saved to: ${picture.path}");
+                  } catch (e) {
+                    debugPrint("Error taking picture: $e");
+                  }
+                }
+              },
+              child: Icon(
+                Icons.camera_alt,
+                size: 32,
+                color: Colors.white,
+              ),
+            )
           ],
         ),
       ),
