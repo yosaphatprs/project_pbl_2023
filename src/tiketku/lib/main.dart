@@ -18,88 +18,68 @@ import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/pages/tiket_page.dart';
 import 'package:tiketku/pages/detailTiket.dart';
 import 'package:tiketku/widgets/bottom_navbar.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'pages/dashboard_akun.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ProviderScope(
-    child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
-      initialRoute: '/login',
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case '/login':
-            return PageTransition(
-                child: const MyStatefulWidget(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/register':
-            return PageTransition(
-                child: RegisterPage(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/':
-            return PageTransition(
-                child: const HomePage(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/tiket':
-            return PageTransition(
-                child: const TiketPage(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/akun':
-            return PageTransition(
-                child: DashboardAkun(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/riwayat':
-            return PageTransition(
-                child: const RiwayatTransaksiPage(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/jadwal_kereta':
-            return PageTransition(
-                child: const JadwalKereta(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/detail_transaksi':
-            return PageTransition(
-                child: const DetailTransaksi(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/detail_tiket':
-            return PageTransition(
-                child: const DetailTransaksi(),
-                type: PageTransitionType.fade,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOut);
-          case '/tentang':
-            return PageTransition(
-              child: AboutPage(),
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(fontFamily: GoogleFonts.manrope().fontFamily),
+    initialRoute: '/login',
+    onGenerateRoute: (settings) {
+      switch (settings.name) {
+        case '/login':
+          return PageTransition(
+              child: const MyStatefulWidget(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
-            );
-          case '/detailRiwayat':
-            return PageTransition(
-              child: DetailRiwayatPage(),
+              curve: Curves.easeOut);
+        case '/register':
+          return PageTransition(
+              child: RegisterPage(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
-            );
-          case '/detailAkun':
-            return PageTransition(
-              child: DetailAkun(),
+              curve: Curves.easeOut);
+        case '/':
+          return PageTransition(
+              child: const HomePage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/tiket':
+          return PageTransition(
+              child: const TiketPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/akun':
+          return PageTransition(
+              child: DashboardAkun(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/riwayat':
+          return PageTransition(
+              child: const RiwayatTransaksiPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/jadwal_kereta':
+          return PageTransition(
+              child: const JadwalKereta(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/detail_transaksi':
+          return PageTransition(
+              child: const DetailTransaksi(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
+        case '/detail_tiket':
+          return PageTransition(
+              child: const DetailTransaksi(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
@@ -141,16 +121,6 @@ void main() {
     //   '/': (context) => const HomePage(),
     //   '/tentang': (context) => const MyApp(),
     // },
-            );
-          default:
-            return MaterialPageRoute(builder: (context) => const MyApp());
-        }
-      },
-      // routes: {
-      //   '/': (context) => const HomePage(),
-      //   '/tentang': (context) => const MyApp(),
-      // },
-    ),
   ));
 }
 
