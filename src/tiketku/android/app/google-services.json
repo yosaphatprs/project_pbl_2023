@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "906885718052",
+    "project_id": "tubes-pbl-2023",
+    "storage_bucket": "tubes-pbl-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906885718052:android:b69e363d55e1cb878578b1",
+        "android_client_info": {
+          "package_name": "com.example.tiketku"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpZzAfjJBbZRQJSITVrEXmYgMX2b2CRJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
