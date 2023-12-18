@@ -137,13 +137,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       onChanged: (bool? value) {
                         setState(() {
                           rememberMe = value;
+                          if (rememberMe == true) {
+                            // Show alert when checkbox is checked
+                            showAlert();
+                          }
                         });
                       },
                     ),
                     Text(
                       'Ingat Saya',
-                      style:
-                          TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                      style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
                     ),
                   ],
                 ),
@@ -209,7 +212,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
     );
   }
+  // Function to show an alert
+  void showAlert() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Ingat Saya'),
+          content: Text('Alert! Checkbox is checked.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
+
 
 class RegisterPage extends StatelessWidget {
   bool _obscureText = true;
