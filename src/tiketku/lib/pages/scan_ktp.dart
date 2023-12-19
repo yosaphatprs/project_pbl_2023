@@ -52,6 +52,10 @@ class _ScanKTPState extends State<ScanKTP> {
 
   @override
   Widget build(BuildContext context) {
+    var camera = controller.value;
+    final size = Size(361, 446);
+    var scale = size.aspectRatio * camera.aspectRatio;
+    if (scale < 1) scale = 1 / scale;
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,
@@ -133,7 +137,10 @@ class _ScanKTPState extends State<ScanKTP> {
                       : controller.value.isInitialized
                           ? AspectRatio(
                               aspectRatio: controller.value.aspectRatio,
-                              child: CameraPreview(controller),
+                              child: Transform.scale(
+                                  scale: scale,
+                                  child:
+                                      Center(child: CameraPreview(controller))),
                             )
                           : Container(),
                 ),
