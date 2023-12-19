@@ -52,10 +52,18 @@ class _ScanKTPState extends State<ScanKTP> {
 
   @override
   Widget build(BuildContext context) {
-    var camera = controller.value;
-    final size = Size(361, 446);
-    var scale = size.aspectRatio * camera.aspectRatio;
-    if (scale < 1) scale = 1 / scale;
+    var scale = 1.0;
+    if (controller.value.isInitialized) {
+      var camera = controller.value;
+      final size = Size(361, 446);
+      scale = size.aspectRatio * camera.aspectRatio;
+      if (scale < 1) scale = 1 / scale;
+    } else {
+      print("Camera not initialized");
+      final size = Size(361, 446);
+      scale = size.aspectRatio * 1;
+      if (scale < 1) scale = 1 / scale;
+    }
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,

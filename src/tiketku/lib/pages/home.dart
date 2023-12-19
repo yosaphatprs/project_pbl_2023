@@ -48,6 +48,7 @@ class HomePage extends StatelessWidget {
     ];
 
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromARGB(255, 242, 242, 242),
         body: SafeArea(
           child: Column(
