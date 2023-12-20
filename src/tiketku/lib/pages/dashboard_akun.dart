@@ -102,41 +102,42 @@ class DashboardAkun extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          width: 350,
-                          height: 50,
-                          // color: Colors.blue,
-                          child:InkWell(
-                            onTap:                          () {
-                                Navigator.of(context).pushNamed('/pusatBantuan');
+                            width: 350,
+                            height: 50,
+                            // color: Colors.blue,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed('/pusatBantuan');
                               },
-                          child: Row(
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                child: Icon(Icons.help_outlined),
-                              ),
-                              Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 30),
-                                width: 200,
-                                height: 50,
-                                child: Text(
-                                  'Pusat Bantuan',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.help_outlined),
                                   ),
-                                ),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    margin: EdgeInsets.only(left: 30),
+                                    width: 200,
+                                    height: 50,
+                                    child: Text(
+                                      'Pusat Bantuan',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 20),
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.keyboard_arrow_right),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                margin: EdgeInsets.only(left: 20),
-                                width: 50,
-                                height: 50,
-                                child: Icon(Icons.keyboard_arrow_right),
-                              ),
-                            ],
-                          ),
-                        )),
+                            )),
                         Container(
                             width: 350,
                             height: 50,
