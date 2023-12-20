@@ -16,6 +16,12 @@ class DashboardAkun extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Center(
         child: Column(
@@ -108,7 +114,7 @@ class DashboardAkun extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 Navigator.of(context)
-                                    .pushNamed('/pusatBantuan');
+                                    .pushNamed('/pusat_bantuan');
                               },
                               child: Row(
                                 children: [
@@ -180,7 +186,7 @@ class DashboardAkun extends StatelessWidget {
                             // color: Colors.blue,
                             child: InkWell(
                               onTap: () {
-                                Navigator.of(context).pushNamed('/detailAkun');
+                                Navigator.of(context).pushNamed('/detail_akun');
                               },
                               child: Row(
                                 children: [
@@ -216,7 +222,8 @@ class DashboardAkun extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed('/login');
+                _showLogoutConfirmation(context);
+                //Navigator.of(context).pushNamed('/login');
               },
               child: Container(
                   margin: EdgeInsets.only(top: 30),
@@ -240,6 +247,32 @@ class DashboardAkun extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const BottomNavbar(title: 'Akun'),
+    );
+  }
+
+  void _showLogoutConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Konfirmasi'),
+          content: Text('Apakah kamu yakin ingin Logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Tidak'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/login');
+              },
+              child: Text('Ya'),
+            ),
+          ],
+        );
+      },
     );
   }
 

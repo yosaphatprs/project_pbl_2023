@@ -84,9 +84,22 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
+        case '/detail_akun':
+          return PageTransition(
+            child: const DetailAkun(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeOut,
+          );
         case '/tentang':
           return PageTransition(
             child: AboutPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+        case '/pusat_bantuan':
+          return PageTransition(
+            child: PusatBantuanPage(),
             type: PageTransitionType.fade,
             duration: const Duration(milliseconds: 400),
           );
