@@ -234,6 +234,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       },
     );
   }
+    void saveUserData(String username, String password) {
+    // Implementasi penyimpanan data pengguna
+    print('Saving user data: Username: $username, Password: $password');
+    // Lakukan penyimpanan ke penyimpanan lokal atau server sesuai kebutuhan
+  }
 }
 
 class RegisterPage extends StatelessWidget {
