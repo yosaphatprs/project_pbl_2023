@@ -60,7 +60,7 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
-        case '/riwayat':
+        case '/riwayat':  
           return PageTransition(
               child: const RiwayatTransaksiPage(),
               type: PageTransitionType.fade,

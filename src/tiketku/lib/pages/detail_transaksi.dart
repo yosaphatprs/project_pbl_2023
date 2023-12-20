@@ -5,16 +5,30 @@ import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/widgets/primary_route_button.dart';
 
 class DetailTransaksi extends StatefulWidget {
-  const DetailTransaksi({super.key});
+  final String result;
+  const DetailTransaksi({super.key, this.result = ""});
 
   @override
   State<DetailTransaksi> createState() => _DetailTransaksiState();
 }
 
 class _DetailTransaksiState extends State<DetailTransaksi> {
+  final TextEditingController _controllerNIK = TextEditingController();
+  final TextEditingController _controllerNama = TextEditingController();
   var scanKtp = false;
   @override
   Widget build(BuildContext context) {
+    if (widget.result == "") {
+      _controllerNIK.text = "";
+      _controllerNama.text = "";
+    } else {
+      String nik = widget.result.substring(0, 17);
+      String nama = widget.result.substring(17);
+
+      _controllerNIK.text = nik;
+      _controllerNama.text = nama;
+    }
+
     return Scaffold(
         appBar: AppBar(
           shadowColor: Colors.transparent,
@@ -378,6 +392,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           width: 344,
                                           height: 36,
                                           child: TextField(
+                                            controller: _controllerNama,
                                             decoration: InputDecoration(
                                               contentPadding:
                                                   const EdgeInsets.only(
@@ -412,6 +427,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                                           width: 344,
                                           height: 36,
                                           child: TextField(
+                                            controller: _controllerNIK,
                                             decoration: InputDecoration(
                                               contentPadding:
                                                   const EdgeInsets.only(

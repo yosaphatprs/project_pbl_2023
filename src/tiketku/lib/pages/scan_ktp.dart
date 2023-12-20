@@ -1,11 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:typed_data';
+import 'package:image/image.dart' as img;
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:tiketku/constants/colors.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:tiketku/constants/custom_clipper_scan.dart';
+import 'package:tiketku/ml.dart';
+import 'package:tiketku/pages/detail_transaksi.dart';
+import 'package:tiketku/pages/test_result_ocr.dart';
 
 late List<CameraDescription> _cameras;
 
@@ -22,6 +30,7 @@ class ScanKTP extends StatefulWidget {
 }
 
 class _ScanKTPState extends State<ScanKTP> {
+  bool isProcessing = false;
   late CameraController controller;
   XFile? capturedImage;
 
@@ -32,6 +41,7 @@ class _ScanKTPState extends State<ScanKTP> {
         if (!mounted) return;
         setState(() {});
       });
+      await controller.setFlashMode(FlashMode.off);
     } on CameraException catch (e) {
       debugPrint("camera error $e");
     }
@@ -59,7 +69,6 @@ class _ScanKTPState extends State<ScanKTP> {
       scale = size.aspectRatio * camera.aspectRatio;
       if (scale < 1) scale = 1 / scale;
     } else {
-      print("Camera not initialized");
       final size = Size(361, 446);
       scale = size.aspectRatio * 1;
       if (scale < 1) scale = 1 / scale;
@@ -138,17 +147,51 @@ class _ScanKTPState extends State<ScanKTP> {
                 ),
                 child: ClipRRect(
                   child: capturedImage != null
-                      ? Image.file(
-                          File(capturedImage!.path),
-                          fit: BoxFit.cover,
-                        )
+                      ? isProcessing
+                          ? Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : Image.file(
+                              File(capturedImage!.path),
+                              fit: BoxFit.cover,
+                            )
                       : controller.value.isInitialized
-                          ? AspectRatio(
-                              aspectRatio: controller.value.aspectRatio,
-                              child: Transform.scale(
-                                  scale: scale,
-                                  child:
-                                      Center(child: CameraPreview(controller))),
+                          ? Stack(
+                              fit: StackFit.expand,
+                              children: [
+                                AspectRatio(
+                                  aspectRatio: controller.value.aspectRatio,
+                                  child: Transform.scale(
+                                      scale: scale,
+                                      child: Center(
+                                          child: CameraPreview(controller))),
+                                ),
+                                Positioned(
+                                  top: 112,
+                                  bottom: 112,
+                                  left: 10,
+                                  right: 10,
+                                  child: Container(
+                                    padding: EdgeInsets.all(10),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.5),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: ClipPath(
+                                      clipper: NIKClipper(),
+                                      child: Container(
+                                          decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.2),
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(8),
+                                      )),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             )
                           : Container(),
                 ),
@@ -176,7 +219,41 @@ class _ScanKTPState extends State<ScanKTP> {
                     final XFile picture = await controller.takePicture();
                     setState(() {
                       capturedImage = picture;
+                      isProcessing = true;
                     });
+                    final image = File(picture.path);
+                    Uint8List bytes = await image.readAsBytes();
+                    img.Image? imageToCrop =
+                        img.decodeImage(Uint8List.fromList(bytes));
+
+                    if (imageToCrop != null) {
+                      img.Image croppedImage = img.copyCrop(imageToCrop,
+                          x: 180, y: 485, width: 350, height: 70);
+
+                      Directory tempDir = await getTemporaryDirectory();
+                      File croppedImageFile =
+                          File('${tempDir.path}/cropped_image.jpg');
+                      await croppedImageFile
+                          .writeAsBytes(img.encodeJpg(croppedImage));
+
+                      MLHelper helper = MLHelper();
+                      helper.textFromImage(croppedImageFile).then((result) {
+                        setState(() {
+                          isProcessing = false;
+                        });
+                        croppedImageFile.delete();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailTransaksi(
+                                      result: result,
+                                    )));
+                      });
+                      print('Image cropped and OCR');
+                    } else {
+                      print('Failed to decode the image.');
+                    }
+
                     await ImageGallerySaver.saveFile(picture.path);
                     debugPrint("Picture saved to: ${picture.path}");
                   } catch (e) {
