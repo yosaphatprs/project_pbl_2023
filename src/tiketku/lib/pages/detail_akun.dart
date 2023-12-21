@@ -524,7 +524,7 @@ class ContainerButton extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed('/ubahSandi');
+              Navigator.of(context).pushNamed('/ubah_sandi');
             },
             child: Container(
                 height: 35,

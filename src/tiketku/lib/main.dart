@@ -65,6 +65,12 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
+        case '/detail_riwayat':  
+          return PageTransition(
+              child: const DetailRiwayatPage(),
+              type: PageTransitionType.fade,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOut);
         case '/jadwal_kereta':
           return PageTransition(
               child: const JadwalKereta(),
@@ -99,6 +105,12 @@ void main() {
         case '/pusat_bantuan':
           return PageTransition(
             child: PusatBantuanPage(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+          );
+         case '/ubah_sandi':
+          return PageTransition(
+            child: UbahKataSandiPage(),
             type: PageTransitionType.fade,
             duration: const Duration(milliseconds: 400),
           );

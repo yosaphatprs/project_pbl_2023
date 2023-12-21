@@ -88,7 +88,7 @@ class KartuRiwayat extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/detailRiwayat');
+              Navigator.pushNamed(context, '/detail_riwayat');
             },
             child: Card(
               child: Padding(

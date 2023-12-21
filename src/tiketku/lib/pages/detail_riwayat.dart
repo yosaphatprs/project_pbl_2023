@@ -164,7 +164,7 @@ class DetailPerjalanan extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text('Ekononi (X)',
+                              Text('Ekonomi (X)',
                                   style: TextStyle(fontSize: 11)),
                             ],
                           ),
