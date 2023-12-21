@@ -433,7 +433,7 @@ class _DetailTransaksiState extends State<DetailTransaksi> {
                             ),
                           ),
                           const PrimaryButton(
-                              text: "Pesan", routeName: "detail_tiket")
+                              text: "Pesan", routeName: "/detail_tiket")
                         ],
                       ),
                     ],
