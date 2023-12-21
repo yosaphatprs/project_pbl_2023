@@ -3,9 +3,8 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:tiketku/pages/detailAkun.dart';
-import 'package:tiketku/pages/detailRiwayat.dart';
-import 'package:tiketku/pages/detailAkun.dart';
+import 'package:tiketku/pages/detail_akun.dart';
+import 'package:tiketku/pages/detail_riwayat.dart';
 import 'package:tiketku/pages/detail_transaksi.dart';
 import 'package:tiketku/pages/ganti_password.dart';
 import 'package:tiketku/pages/home.dart';
@@ -14,10 +13,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tiketku/pages/jadwal_kereta.dart';
 import 'package:tiketku/pages/login_page.dart';
 import 'package:tiketku/pages/pusat_bantuan.dart';
-import 'package:tiketku/pages/riwayatTransaski.dart';
+import 'package:tiketku/pages/riwayat_transaski.dart';
 import 'package:tiketku/pages/scan_ktp.dart';
 import 'package:tiketku/pages/tiket_page.dart';
-import 'package:tiketku/pages/detailTiket.dart';
+import 'package:tiketku/pages/detail_tiket.dart';
 import 'package:tiketku/widgets/bottom_navbar.dart';
 
 import 'pages/dashboard_akun.dart';
