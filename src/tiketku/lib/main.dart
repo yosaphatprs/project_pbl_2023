@@ -85,7 +85,7 @@ void main() {
               curve: Curves.easeOut);
         case '/detail_tiket':
           return PageTransition(
-              child: const DetailTransaksi(),
+              child: TiketDetailPage(),
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
