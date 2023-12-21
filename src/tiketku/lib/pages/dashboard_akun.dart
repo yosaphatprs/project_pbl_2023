@@ -16,6 +16,12 @@ class DashboardAkun extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Center(
         child: Column(
@@ -102,41 +108,42 @@ class DashboardAkun extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          width: 350,
-                          height: 50,
-                          // color: Colors.blue,
-                          child:InkWell(
-                            onTap:                          () {
-                                Navigator.of(context).pushNamed('/pusatBantuan');
+                            width: 350,
+                            height: 50,
+                            // color: Colors.blue,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed('/pusat_bantuan');
                               },
-                          child: Row(
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                child: Icon(Icons.help_outlined),
-                              ),
-                              Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 30),
-                                width: 200,
-                                height: 50,
-                                child: Text(
-                                  'Pusat Bantuan',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.help_outlined),
                                   ),
-                                ),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    margin: EdgeInsets.only(left: 30),
+                                    width: 200,
+                                    height: 50,
+                                    child: Text(
+                                      'Pusat Bantuan',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 20),
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(Icons.keyboard_arrow_right),
+                                  ),
+                                ],
                               ),
-                              Container(
-                                margin: EdgeInsets.only(left: 20),
-                                width: 50,
-                                height: 50,
-                                child: Icon(Icons.keyboard_arrow_right),
-                              ),
-                            ],
-                          ),
-                        )),
+                            )),
                         Container(
                             width: 350,
                             height: 50,
@@ -179,7 +186,7 @@ class DashboardAkun extends StatelessWidget {
                             // color: Colors.blue,
                             child: InkWell(
                               onTap: () {
-                                Navigator.of(context).pushNamed('/detailAkun');
+                                Navigator.of(context).pushNamed('/detail_akun');
                               },
                               child: Row(
                                 children: [
@@ -215,7 +222,8 @@ class DashboardAkun extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed('/login');
+                _showLogoutConfirmation(context);
+                //Navigator.of(context).pushNamed('/login');
               },
               child: Container(
                   margin: EdgeInsets.only(top: 30),
@@ -239,6 +247,32 @@ class DashboardAkun extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const BottomNavbar(title: 'Akun'),
+    );
+  }
+
+  void _showLogoutConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Konfirmasi'),
+          content: Text('Apakah kamu yakin ingin Logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Tidak'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/login');
+              },
+              child: Text('Ya'),
+            ),
+          ],
+        );
+      },
     );
   }
 

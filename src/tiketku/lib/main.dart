@@ -59,7 +59,7 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
-        case '/riwayat':
+        case '/riwayat':  
           return PageTransition(
               child: const RiwayatTransaksiPage(),
               type: PageTransitionType.fade,
@@ -83,33 +83,22 @@ void main() {
               type: PageTransitionType.fade,
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOut);
+        case '/detail_akun':
+          return PageTransition(
+            child: const DetailAkun(),
+            type: PageTransitionType.fade,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeOut,
+          );
         case '/tentang':
           return PageTransition(
             child: AboutPage(),
             type: PageTransitionType.fade,
             duration: const Duration(milliseconds: 400),
           );
-        case '/detailRiwayat':
-          return PageTransition(
-            child: DetailRiwayatPage(),
-            type: PageTransitionType.fade,
-            duration: const Duration(milliseconds: 400),
-          );
-        case '/detailAkun':
-          return PageTransition(
-            child: DetailAkun(),
-            type: PageTransitionType.fade,
-            duration: const Duration(milliseconds: 400),
-          );
-        case '/pusatBantuan':
+        case '/pusat_bantuan':
           return PageTransition(
             child: PusatBantuanPage(),
-            type: PageTransitionType.fade,
-            duration: const Duration(milliseconds: 400),
-          );
-        case '/ubahSandi':
-          return PageTransition(
-            child: UbahKataSandiPage(),
             type: PageTransitionType.fade,
             duration: const Duration(milliseconds: 400),
           );
