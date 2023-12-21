@@ -30,6 +30,10 @@ Aplikasi TiketKu adalah sebuah aplikasi pemesanan tiket kereta api pihak ketiga 
 | 7 | About Tiket | - | Novita |
 | 8 | Dashboard Akun | - | Nasya |
 | 9 | Tiket | - | Nasya |
+| 10 | Riwayat | Daftar riwayat pembelian tiket, detail riwayat tiket  | Dhoriffito |
+| 11 | Detail Akun | - | Dhoriffito |
+| 12 | Pusat Bantuan | - | Dhoriffito |
+
 
 dst
 
