@@ -80,17 +80,63 @@ class TiketPage extends StatelessWidget {
   }
 
   Widget _buildOptionContent(String optionText) {
-    return Center(
-      child: Container(
-        margin: EdgeInsets.only(top: 20),
-        child: Text(
-          'Isi konten untuk $optionText di sini',
+  String imagePath = '';
+  String description = '';
+
+  if (optionText == 'KA ANTAR KOTA') {
+    imagePath = 'assets/kota.png';
+    description =
+        'Kereta Api Antar Kota adalah pilihan yang tepat untuk perjalanan jarak jauh. Nikmati kenyamanan perjalanan dengan KA Antarkota kami.';
+  } else if (optionText == 'KA LOKAL') {
+    imagePath = 'assets/lokal.jpeg';
+    description =
+        'Kereta Api Lokal adalah solusi terbaik untuk perjalanan sehari-hari di dalam kota. Hemat waktu dan nyaman dengan KA Lokal kami.';
+  } else if (optionText == 'LAYANAN') {
+    imagePath = 'assets/layanan.jpg';
+    description =
+        'Layanan khusus untuk memenuhi kebutuhan perjalanan Anda. Dengan pelayanan yang prima, kami siap membantu membuat perjalanan Anda lebih istimewa.';
+  }
+
+  return Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          imagePath,
+          height: 200,
+          width: 200,
+          fit: BoxFit.cover,
+        ),
+        SizedBox(height: 16),
+        Text(
+          optionText,
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-      ),
-    );
-  }
+        SizedBox(height: 16),
+        Text(
+          description,
+          style: TextStyle(fontSize: 16),
+          textAlign: TextAlign.center,
+        ),
+        // SizedBox(height: 16),
+        // ElevatedButton(
+        //   onPressed: () {
+        //     // Tindakan yang ingin Anda lakukan saat tombol ditekan
+        //     print('Beli Tiket $optionText');
+        //   },
+        //   style: ElevatedButton.styleFrom(
+        //     primary: Color(0xFF1B69B3),
+        //     onPrimary: Colors.white,
+        //   ),
+        //   child: Text('Beli Tiket $optionText'),
+        // ),
+      ],
+    ),
+  );
+}
+
 }
