@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable, prefer_const_constructors, deprecated_member_use, avoid_print, unnecessary_const, sort_child_properties_last, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tiketku/pages/home.dart';
+
 
 void main() => runApp(const LoginPage());
 
@@ -37,6 +39,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -234,7 +237,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       },
     );
   }
-    void saveUserData(String username, String password) {
+
+  void saveUserData(String username, String password) {
     // Implementasi penyimpanan data pengguna
     print('Saving user data: Username: $username, Password: $password');
     // Lakukan penyimpanan ke penyimpanan lokal atau server sesuai kebutuhan
@@ -242,10 +246,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 }
 
 class RegisterPage extends StatelessWidget {
-  bool _obscureText = false;
+  bool _obscureRegister = false;
   bool? rememberMe;
   TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordController2 = TextEditingController();
 
   RegisterPage({Key? key}) : super(key: key);
 
@@ -368,6 +372,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     TextField(
+                      controller: nameController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Masukkan Alamat Email',
@@ -440,27 +445,27 @@ class RegisterPage extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
-                  SizedBox(height: 5),
-                  TextFormField(
-                    controller: passwordController,
-                    obscureText: _obscureText,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Masukkan Kata Sandi',
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscureText
-                              ? Icons.visibility
-                              : Icons.visibility_off,
+                    SizedBox(height: 5),
+                    TextFormField(
+                      controller: passwordController2,
+                      obscureText: _obscureRegister,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Masukkan Kata Sandi',
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscureRegister
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscureRegister = !_obscureRegister;
+                            });
+                          },
                         ),
-                        onPressed: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
                       ),
                     ),
-                  ),
                   ],
                 ),
               ),
@@ -476,6 +481,9 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
+                    FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: nameController.text,
+                        password: passwordController2.text);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LoginPage()),
